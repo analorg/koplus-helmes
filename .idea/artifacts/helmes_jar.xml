@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="helmes:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/helmes_jar</output-path>
+    <root id="archive" name="helmes.jar">
+      <element id="module-output" name="helmes" />
+    </root>
+  </artifact>
+</component>
