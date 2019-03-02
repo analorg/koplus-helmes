@@ -10,7 +10,7 @@ import java.util.Arrays;
 public class Main {
 
     public static void main(String[] args) throws IOException {
-        long startTime = System.currentTimeMillis();
+        SimpleTimer.start();
         String word = args[1];
         char[] wordChar = word.toLowerCase().toCharArray();
         Arrays.sort(wordChar);
@@ -18,7 +18,7 @@ public class Main {
 
         ArrayList<String> result = new ArrayList<>();
         String[] inputList = getInputList(args[0]);
-        System.out.println("Finished file loading: " + (System.currentTimeMillis() - startTime));
+        SimpleTimer.split("Done file loading");
 
         int listSize = inputList.length;
         for(int i = 0; i < listSize; i++) {
@@ -32,13 +32,13 @@ public class Main {
                 result.add(inputList[i]);
             }
         }
-        System.out.println("Finished parsing: " + (System.currentTimeMillis() - startTime));
-        long stop = System.currentTimeMillis() - startTime;
-        System.out.println(stop*1000 + ", " + String.join(",", result));
+        SimpleTimer.split("Done parse");
+        SimpleTimer.printResults();
+        System.out.println( String.join(",", result));
     }
 
     private static String[] getInputList(String path) throws IOException {
-        Charset inputCharset = Charset.forName("ISO-8859-1");
+        Charset inputCharset = Charset.forName("WINDOWS-1257");
 
         return Files.readAllLines(Paths.get(path), inputCharset).toArray(new String[0]);
     }
