@@ -11,16 +11,18 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         SimpleTimer.start();
-        String word = args[1];
-        char[] wordChar = word.toLowerCase().toCharArray();
-        Arrays.sort(wordChar);
-        int sizeWord = wordChar.length;
+        String userWord = args[1];
+        char[] userWordArr = userWord.toLowerCase().toCharArray();
+        Arrays.sort(userWordArr);
+        int sizeWord = userWordArr.length;
 
         ArrayList<String> result = new ArrayList<>();
+        SimpleTimer.split("Start file loading");
         String[] inputList = getInputList(args[0]);
         SimpleTimer.split("Done file loading");
 
         int listSize = inputList.length;
+        SimpleTimer.split("Starting loop");
         for(int i = 0; i < listSize; i++) {
             String word1 = inputList[i];
             if (word1.length() != sizeWord) continue;
@@ -28,7 +30,7 @@ public class Main {
 
             Arrays.sort(currentWord);
 
-            if (Arrays.equals(currentWord, wordChar)) {
+            if (Arrays.equals(currentWord, userWordArr)) {
                 result.add(inputList[i]);
             }
         }
@@ -38,8 +40,6 @@ public class Main {
     }
 
     private static String[] getInputList(String path) throws IOException {
-        Charset inputCharset = Charset.forName("WINDOWS-1257");
-
-        return Files.readAllLines(Paths.get(path), inputCharset).toArray(new String[0]);
+        return Files.readAllLines(Paths.get(path), Charset.forName("WINDOWS-1257")).toArray(new String[0]);
     }
 }
