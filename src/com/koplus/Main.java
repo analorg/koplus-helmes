@@ -10,19 +10,16 @@ import java.util.Arrays;
 public class Main {
 
     public static void main(String[] args) throws IOException {
-        SimpleTimer.start();
+        long startTime = System.currentTimeMillis();
         String userWord = args[1];
         char[] userWordArr = userWord.toLowerCase().toCharArray();
         Arrays.sort(userWordArr);
         int sizeWord = userWordArr.length;
 
         ArrayList<String> result = new ArrayList<>();
-        SimpleTimer.split("Start file loading");
         String[] inputList = getInputList(args[0]);
-        SimpleTimer.split("Done file loading");
 
         int listSize = inputList.length;
-        SimpleTimer.split("Starting loop");
         for(int i = 0; i < listSize; i++) {
             String word1 = inputList[i];
             if (word1.length() != sizeWord) continue;
@@ -34,9 +31,7 @@ public class Main {
                 result.add(inputList[i]);
             }
         }
-        SimpleTimer.split("Done parse");
-        SimpleTimer.printResults();
-        System.out.println( String.join(",", result));
+        System.out.println((System.currentTimeMillis() - startTime) + " " + String.join(",", result));
     }
 
     private static String[] getInputList(String path) throws IOException {
