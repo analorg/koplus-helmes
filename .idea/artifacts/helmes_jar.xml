@@ -1,9 +1,12 @@
 <component name="ArtifactManager">
   <artifact type="jar" name="helmes:jar">
-    <output-path>$PROJECT_DIR$/out/artifacts/helmes_jar</output-path>
+    <output-path>$PROJECT_DIR$/bin</output-path>
     <root id="archive" name="helmes.jar">
       <element id="module-output" name="helmes" />
       <element id="archive" name="archive.jar" />
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/META-INF/MANIFEST.MF" />
+      </element>
     </root>
   </artifact>
 </component>
