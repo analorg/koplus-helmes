@@ -8,6 +8,7 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         long startTime = System.nanoTime();
+
         String userWord = args[1];
         char[] userWordArr = userWord.toLowerCase().toCharArray();
         Arrays.sort(userWordArr);
@@ -31,6 +32,7 @@ public class Main {
             }
         }
 
-        System.out.println((System.nanoTime() - startTime)/1000 + " " + String.join(",", result));
+        long stop = System.nanoTime() - startTime;
+        System.out.println(stop / 1000 + "," + String.join(",", result));
     }
 }
