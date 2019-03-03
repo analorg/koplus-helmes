@@ -3,6 +3,7 @@
     <output-path>$PROJECT_DIR$/out/artifacts/helmes_jar</output-path>
     <root id="archive" name="helmes.jar">
       <element id="module-output" name="helmes" />
+      <element id="archive" name="archive.jar" />
     </root>
   </artifact>
 </component>
