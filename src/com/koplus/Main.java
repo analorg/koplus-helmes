@@ -7,7 +7,7 @@ import java.util.Arrays;
 public class Main {
 
     public static void main(String[] args) throws IOException {
-        long startTime = System.currentTimeMillis();
+        long startTime = System.nanoTime();
         String userWord = args[1];
         char[] userWordArr = userWord.toLowerCase().toCharArray();
         Arrays.sort(userWordArr);
@@ -31,6 +31,6 @@ public class Main {
             }
         }
 
-        System.out.println((System.currentTimeMillis() - startTime) + " " + String.join(",", result));
+        System.out.println((System.nanoTime() - startTime)/1000 + " " + String.join(",", result));
     }
 }
